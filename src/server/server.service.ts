@@ -14,4 +14,16 @@ export class ServerService {
   getById(id: string): string {
     return toStringify(this.server.find(server => server.id === Number(id)));
   }
+
+  searchByTerm(searchType: string, term: string): string {
+    if (searchType !== undefined) {
+      if (searchType === 'itself') {
+        return toStringify(this.server.filter(server => server.name.toLowerCase().includes(term.toLowerCase())));
+      } else if (searchType === 'waifu') {
+        return toStringify(this.server.filter(server => server.waifu.some(waifu => waifu.toLowerCase().includes(term.toLowerCase()))));
+      }
+    } else {
+      return toStringify(this.server.filter(server => server.name.toLowerCase().includes(term.toLowerCase()) || server.waifu.some(waifu => waifu.toLowerCase().includes(term.toLowerCase()))));
+    }
+  }
 }
