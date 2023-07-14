@@ -16,7 +16,7 @@ export class ServerController {
   }
 
   @Get('server/search/:term')
-  searchByTerm(@Query('searchType') searchType: string, @Param('term') term: string) {
+  searchByTerm(@Query('searchType') searchType: string, @Param('term') term: string): string {
     return this.serverService.searchByTerm(searchType, term);
   }
 }
