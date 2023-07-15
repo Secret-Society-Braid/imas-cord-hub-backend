@@ -9,7 +9,6 @@ async function bootstrap() {
     .setTitle('Imas Cord Hub Backend API')
     .setDescription('Represents the backend API for the Imas Cord Hub')
     .setVersion('1.0')
-    .addTag('imas-cord-hub-backend')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
