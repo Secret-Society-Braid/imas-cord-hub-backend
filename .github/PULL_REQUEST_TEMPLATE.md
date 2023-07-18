@@ -10,7 +10,7 @@ Issue #: <!-- Add issue number here if current issue is related to your PR. -->
 
 ## PR Type
 <!-- Select one of following types that is mostly cover your PR changes. -->
-<!-- You can select more than one type -->
+<!-- If two or more types are matching, please consider separating PR. -->
 
 - [ ] Bugfix
 - [ ] New feature
