@@ -14,7 +14,7 @@ For more information, please refer to [CC BY-NC-SA 4.0 Legal Code](https://creat
 
 ## Data
 
-The following data are stored in this repository and served by calling this API.
+The following data are stored in this repository and served. Both server and fansite models are stored as an array.
 
 - [server.model.ts](https://github.com/Secret-Society-Braid/imas-cord-hub-backend/blob/main/src/server/model/server.model.ts)
   - internal ID (used only in this API)

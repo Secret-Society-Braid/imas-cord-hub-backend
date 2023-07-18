@@ -45,11 +45,13 @@ If you are interested in contributing to this project, please read [CONTRIBUTING
 - Website - [GitHub Repository](https://github.com/Secret-Society-Braid/imas-cord-hub-backend)
 - Twitter - [@hizumiaoba](https://twitter.com/hizumiaoba)
 
+Or you can use [GitHub Discussions](https://github.com/Secret-Society-Braid/imas-cord-hub-backend/discussions) to ask questions and/or share your ideas. Both English and Japanese are welcome :)
+
 ## Donating
 
 You can use this service and API completely free. But **your supports and feedbacks** are extremely appreciated!
 
-If you are considering to donate this project, Please refer [this document](doc/DONATING.md)
+If you are considering to donate this project, Please refer the sponsor section of this repository.
 
 
 ## License

@@ -8,6 +8,7 @@ First of all, we extremely thank you to consider contributing to this project!
   - [Table of Contents](#table-of-contents)
   - [How to contribute](#how-to-contribute)
   - [Code of Conduct](#code-of-conduct)
+  - [About provided data section](#about-provided-data-section)
 
 ## How to contribute
 
@@ -17,6 +18,8 @@ First of all, we extremely thank you to consider contributing to this project!
   - Please point directly to the `Secret-Society-Braid:main` branch.
 
 ## Code of Conduct
+
+Below are just standard rules. Please do not hesitate to contact us if you have any questions.
 
 - Be respectful: Treat others with respect and kindness. Do not engage in discriminatory or harassing behavior.
 
