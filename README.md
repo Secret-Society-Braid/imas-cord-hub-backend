@@ -47,7 +47,10 @@ If you are interested in contributing to this project, please read [CONTRIBUTING
 
 ## Donating
 
-https://paypal.me/ranfa2323623?country.x=JP&locale.x=ja_JP
+You can use this service and API completely free. But **your supports and feedbacks** are extremely appreciated!
+
+If you are considering to donate this project, Please refer [this document](doc/DONATING.md)
+
 
 ## License
 
@@ -61,6 +64,6 @@ The most of the code in this repository is licensed under the [MIT license](doc/
 if you want more information about the license of:
 
 - the codebase, please refer to the [MIT License](LICENSE)
-- the data provided by calling this API (data from following files), please refer to the [API Data Licensing](doc/API_DATA_LICENSE.md)
+- the data provided by calling this API (data from above files), please refer to the [API Data Licensing](doc/API_DATA_LICENSE.md)
 
 [⬆️ Back to Top](#table-of-contents)
