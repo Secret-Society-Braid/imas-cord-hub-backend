@@ -27,3 +27,7 @@ First of all, we extremely thank you to consider contributing to this project!
 - Be transparent: Communicate openly and honestly with others. Do not withhold information or misrepresent yourself or your intentions.
 
 - Be accountable: Take responsibility for your actions and their consequences. Admit mistakes and work to make things right.
+
+## About provided data section
+
+The concrete files of provided data are **not editable by PR**. If you want to add your server or fansite information, please use the form in the ImasCordHub web app.
