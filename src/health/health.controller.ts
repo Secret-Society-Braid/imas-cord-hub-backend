@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Header } from '@nestjs/common';
 import { HealthService } from './health.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
@@ -15,6 +15,7 @@ export class HealthController {
     status: 200,
     description: 'returns the health of API'
   })
+  @Header('Content-Type', 'application/json')
   getHealth(): string {
     return this.healthService.getHealth();
   }

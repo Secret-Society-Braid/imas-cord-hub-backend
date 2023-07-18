@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Header, Param, Query } from '@nestjs/common';
 import { FansiteService } from './fansite.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
@@ -15,6 +15,7 @@ export class FansiteController {
     status: 200,
     description: 'returns the list of all fansites'
   })
+  @Header('Content-Type', 'application/json')
   getAll(): string {
     return this.fansiteService.getAll();
   }
@@ -31,6 +32,7 @@ export class FansiteController {
     status: 404,
     description: 'when the fansite is not found'
   })
+  @Header('Content-Type', 'application/json')
   getById(@Param('id') id: string): string {
     return this.fansiteService.getById(id);
   }
@@ -47,6 +49,7 @@ export class FansiteController {
     status: 500,
     description: 'when the searchType is not acceptable'
   })
+  @Header('Content-Type', 'application/json')
   searchByTerm(@Query('searchType') searchType: string, @Param('id') id: string): string {
     return this.fansiteService.searchByTerm(searchType, id);
   }

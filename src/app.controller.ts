@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Header } from '@nestjs/common';
 import { AppService } from './app.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
@@ -15,6 +15,7 @@ export class AppController {
     status: 200,
     description: 'returns the meta info of API'
   })
+  @Header('Content-Type', 'application/json')
   getHello(): string {
     return this.appService.getHello();
   }
