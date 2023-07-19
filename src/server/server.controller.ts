@@ -17,6 +17,12 @@ export class ServerController {
     return this.serverService.getById(id);
   }
 
+  @Get('latest')
+  @Header('Content-Type', 'application/json')
+  getLatest(): string {
+    return this.serverService.getLatest();
+  }
+
   @Get('search/:term')
   @Header('Content-Type', 'application/json')
   searchByTerm(@Query('searchType') searchType: string, @Param('term') term: string): string {

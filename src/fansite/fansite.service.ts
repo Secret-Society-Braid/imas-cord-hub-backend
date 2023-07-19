@@ -27,4 +27,8 @@ export class FansiteService {
         throw new Error(`Invalid search type: ${searchType}`);
     }
   }
+
+  getLatest(): string {
+    return toStringify(this.fansite[this.fansite.length - 1]);
+  }
 }

@@ -53,4 +53,17 @@ export class FansiteController {
   searchByTerm(@Query('searchType') searchType: string, @Param('id') id: string): string {
     return this.fansiteService.searchByTerm(searchType, id);
   }
+
+  @Get('latest')
+  @ApiOperation({
+    summary: 'Represents the latest added fansite'
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'returns the latest added fansite'
+  })
+  @Header('Content-Type', 'application/json')
+  getLatest(): string {
+    return this.fansiteService.getLatest();
+  }
 }

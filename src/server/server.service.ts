@@ -27,4 +27,8 @@ export class ServerService {
         throw new Error(`Invalid search type: ${searchType}`);
     }
   }
+
+  getLatest(): string {
+    return toStringify(this.server[this.server.length - 1]);
+  }
 }
