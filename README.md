@@ -4,7 +4,6 @@
 - [ImasCordHub Backend](#imascordhub-backend)
   - [Table of Contents](#table-of-contents)
   - [Description](#description)
-  - [Installation](#installation)
   - [Running the app](#running-the-app)
   - [Contributing](#contributing)
   - [Stay in touch](#stay-in-touch)
@@ -15,12 +14,6 @@
 ## Description
 
 ImasCordHub Backend is an Free Open Source Software (FOSS) and represents the neccessary data for the ImasCordHub Frontend app. 
-
-## Installation
-
-```bash
-$ npm install
-```
 
 ## Running the app
 
