@@ -57,7 +57,7 @@ export class FansiteController {
     return this.fansiteService.searchByTerm(searchType, id);
   }
 
-  @Get('latest')
+  @Get('find/latest')
   @ApiOperation({
     summary: 'Represents the latest added fansite',
   })
@@ -70,7 +70,7 @@ export class FansiteController {
     return this.fansiteService.getLatest();
   }
 
-  @Get('random')
+  @Get('find/random')
   @ApiOperation({
     summary: 'Represents the random fansites',
   })

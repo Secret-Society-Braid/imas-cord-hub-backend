@@ -17,7 +17,7 @@ export class ServerController {
     return this.serverService.getById(id);
   }
 
-  @Get('latest')
+  @Get('find/latest')
   @Header('Content-Type', 'application/json')
   getLatest(): string {
     return this.serverService.getLatest();
@@ -32,7 +32,7 @@ export class ServerController {
     return this.serverService.searchByTerm(searchType, term);
   }
 
-  @Get('random')
+  @Get('find/random')
   @Header('Content-Type', 'application/json')
   getRandom(@Query('amount') amount: string): string {
     const amountNumber = Number(amount);
