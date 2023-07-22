@@ -9,11 +9,11 @@ export class AppController {
 
   @Get()
   @ApiOperation({
-    summary: 'Represents the meta info of API'
+    summary: 'Represents the meta info of API',
   })
   @ApiResponse({
     status: 200,
-    description: 'returns the meta info of API'
+    description: 'returns the meta info of API',
   })
   @Header('Content-Type', 'application/json')
   getHello(): string {
