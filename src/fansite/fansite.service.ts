@@ -1,7 +1,7 @@
 import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
 import { fansiteType } from './interface/fansite.interface';
 import { fansiteModel } from './model/fansite.model';
-import { toStringify } from 'src/util/jsonUtil';
+import { toStringify } from '../util/jsonUtil';
 
 @Injectable()
 export class FansiteService {
@@ -22,11 +22,25 @@ export class FansiteService {
   searchByTerm(searchType: string, term: string): string {
     switch (searchType) {
       case undefined:
-        return toStringify(this.fansite.filter(fansite => fansite.name.toLowerCase().includes(term.toLowerCase()) || fansite.waifu.toLowerCase().includes(term.toLowerCase())));
+        return toStringify(
+          this.fansite.filter(
+            (fansite) =>
+              fansite.name.toLowerCase().includes(term.toLowerCase()) ||
+              fansite.waifu.toLowerCase().includes(term.toLowerCase()),
+          ),
+        );
       case 'itself':
-        return toStringify(this.fansite.filter(fansite => fansite.name.toLowerCase().includes(term.toLowerCase())));
+        return toStringify(
+          this.fansite.filter((fansite) =>
+            fansite.name.toLowerCase().includes(term.toLowerCase()),
+          ),
+        );
       case 'waifu':
-        return toStringify(this.fansite.filter(fansite => fansite.waifu.toLowerCase().includes(term.toLowerCase())));
+        return toStringify(
+          this.fansite.filter((fansite) =>
+            fansite.waifu.toLowerCase().includes(term.toLowerCase()),
+          ),
+        );
       default:
         throw new BadRequestException(`Invalid search type: ${searchType}`);
     }
@@ -34,5 +48,15 @@ export class FansiteService {
 
   getLatest(): string {
     return toStringify(this.fansite[this.fansite.length - 1]);
+  }
+
+  getRandom(amount: number): string {
+    const randomFansites: Array<fansiteType> = [];
+    for (let i = 0; i < amount; i++) {
+      randomFansites.push(
+        this.fansite[Math.floor(Math.random() * this.fansite.length)],
+      );
+    }
+    return toStringify(randomFansites);
   }
 }

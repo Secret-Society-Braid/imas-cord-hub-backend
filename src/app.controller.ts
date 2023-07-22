@@ -10,7 +10,7 @@ export class AppController {
 
   @Get()
   @ApiOperation({
-    summary: 'Represents the meta info of API'
+    summary: 'Represents the meta info of API',
   })
   @ApiResponse({
     status: 200,

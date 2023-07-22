@@ -10,7 +10,7 @@ export class FansiteController {
 
   @Get()
   @ApiOperation({
-    summary: 'Represents the list of all fansites'
+    summary: 'Represents the list of all fansites',
   })
   @ApiResponse({
     status: HttpStatus.OK,
@@ -24,7 +24,7 @@ export class FansiteController {
 
   @Get(':id')
   @ApiOperation({
-    summary: 'Represents the details of a fansite'
+    summary: 'Represents the details of a fansite',
   })
   @ApiResponse({
     status: HttpStatus.OK,
@@ -43,7 +43,7 @@ export class FansiteController {
 
   @Get('search/:term')
   @ApiOperation({
-    summary: 'Represents the search results of a fansite'
+    summary: 'Represents the search results of a fansite',
   })
   @ApiResponse({
     status: HttpStatus.OK,
@@ -56,13 +56,16 @@ export class FansiteController {
     type: FansiteSearchTypeNotAcceptableResponse
   })
   @Header('Content-Type', 'application/json')
-  searchByTerm(@Query('searchType') searchType: string, @Param('term') term: string): string {
+  searchByTerm(
+    @Query('searchType') searchType: string,
+    @Param('term') term: string,
+  ): string {
     return this.fansiteService.searchByTerm(searchType, term);
   }
 
-  @Get('latest')
+  @Get('find/latest')
   @ApiOperation({
-    summary: 'Represents the latest added fansite'
+    summary: 'Represents the latest added fansite',
   })
   @ApiResponse({
     status: HttpStatus.OK,
@@ -72,5 +75,19 @@ export class FansiteController {
   @Header('Content-Type', 'application/json')
   getLatest(): string {
     return this.fansiteService.getLatest();
+  }
+
+  @Get('find/random')
+  @ApiOperation({
+    summary: 'Represents the random fansites',
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'returns the random fansites',
+  })
+  @Header('Content-Type', 'application/json')
+  getRandom(@Query('amount') amount: string): string {
+    const amountNumber = Number(amount);
+    return this.fansiteService.getRandom(amountNumber ? amountNumber : 1);
   }
 }
