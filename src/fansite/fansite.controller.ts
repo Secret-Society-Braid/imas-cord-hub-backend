@@ -1,6 +1,7 @@
-import { Controller, Get, Header, Param, Query } from '@nestjs/common';
+import { Controller, Get, Header, Param, Query, HttpStatus } from '@nestjs/common';
 import { FansiteService } from './fansite.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { FansiteNotFoundResponse, FansiteSearchTypeNotAcceptableResponse, GetFansiteResponse } from './fansite.dto';
 
 @Controller('fansite')
 @ApiTags('fansite')
@@ -12,8 +13,9 @@ export class FansiteController {
     summary: 'Represents the list of all fansites',
   })
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'returns the list of all fansites',
+    type: [GetFansiteResponse]
   })
   @Header('Content-Type', 'application/json')
   getAll(): string {
@@ -25,12 +27,14 @@ export class FansiteController {
     summary: 'Represents the details of a fansite',
   })
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'returns the details of a fansite',
+    type: GetFansiteResponse
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'when the fansite is not found',
+    type: FansiteNotFoundResponse
   })
   @Header('Content-Type', 'application/json')
   getById(@Param('id') id: string): string {
@@ -42,19 +46,21 @@ export class FansiteController {
     summary: 'Represents the search results of a fansite',
   })
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'returns the search results of a fansite',
+    type: [GetFansiteResponse]
   })
   @ApiResponse({
-    status: 500,
+    status: HttpStatus.NOT_ACCEPTABLE,
     description: 'when the searchType is not acceptable',
+    type: FansiteSearchTypeNotAcceptableResponse
   })
   @Header('Content-Type', 'application/json')
   searchByTerm(
     @Query('searchType') searchType: string,
-    @Param('id') id: string,
+    @Param('term') term: string,
   ): string {
-    return this.fansiteService.searchByTerm(searchType, id);
+    return this.fansiteService.searchByTerm(searchType, term);
   }
 
   @Get('find/latest')
@@ -62,8 +68,9 @@ export class FansiteController {
     summary: 'Represents the latest added fansite',
   })
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'returns the latest added fansite',
+    type: GetFansiteResponse
   })
   @Header('Content-Type', 'application/json')
   getLatest(): string {

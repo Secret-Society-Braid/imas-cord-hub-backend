@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
 import { fansiteType } from './interface/fansite.interface';
 import { fansiteModel } from './model/fansite.model';
 import { toStringify } from '../util/jsonUtil';
@@ -12,9 +12,11 @@ export class FansiteService {
   }
 
   getById(id: string): string {
-    return toStringify(
-      this.fansite.find((fansite) => fansite.id === Number(id)),
-    );
+    const result = this.fansite.find(fansite => fansite.id === Number(id));
+    if(result === undefined) {
+      throw new NotFoundException('Fansite Not Found');
+    }
+    return toStringify(result);
   }
 
   searchByTerm(searchType: string, term: string): string {
@@ -40,7 +42,7 @@ export class FansiteService {
           ),
         );
       default:
-        throw new Error(`Invalid search type: ${searchType}`);
+        throw new BadRequestException(`Invalid search type: ${searchType}`);
     }
   }
 
