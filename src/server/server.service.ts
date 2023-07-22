@@ -31,4 +31,15 @@ export class ServerService {
   getLatest(): string {
     return toStringify(this.server[this.server.length - 1]);
   }
+
+  getRandom(amount: number) {
+    const randomServer = [];
+    while (randomServer.length < amount) {
+      const randomIndex = Math.floor(Math.random() * this.server.length);
+      if (!randomServer.includes(this.server[randomIndex])) {
+        randomServer.push(this.server[randomIndex]);
+      }
+    }
+    return toStringify(randomServer);
+  }
 }

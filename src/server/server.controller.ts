@@ -28,4 +28,11 @@ export class ServerController {
   searchByTerm(@Query('searchType') searchType: string, @Param('term') term: string): string {
     return this.serverService.searchByTerm(searchType, term);
   }
+
+  @Get('random')
+  @Header('Content-Type', 'application/json')
+  getRandom(@Query('amount') amount: string): string {
+    const amountNumber = Number(amount);
+    return this.serverService.getRandom(amountNumber ? amountNumber : 1);
+  }
 }

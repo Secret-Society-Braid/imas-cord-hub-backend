@@ -66,4 +66,18 @@ export class FansiteController {
   getLatest(): string {
     return this.fansiteService.getLatest();
   }
+
+  @Get('random')
+  @ApiOperation({
+    summary: 'Represents the random fansites'
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'returns the random fansites'
+  })
+  @Header('Content-Type', 'application/json')
+  getRandom(@Query('amount') amount: string): string {
+    const amountNumber = Number(amount);
+    return this.fansiteService.getRandom(amountNumber ? amountNumber : 1);
+  }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { fansiteType } from './interface/fansite.interface';
 import { fansiteModel } from './model/fansite.model';
-import { toStringify } from 'src/util/jsonUtil';
+import { toStringify } from '../util/jsonUtil';
 
 @Injectable()
 export class FansiteService {
@@ -30,5 +30,13 @@ export class FansiteService {
 
   getLatest(): string {
     return toStringify(this.fansite[this.fansite.length - 1]);
+  }
+
+  getRandom(amount: number): string {
+    const randomFansites: Array<fansiteType> = [];
+    for (let i = 0; i < amount; i++) {
+      randomFansites.push(this.fansite[Math.floor(Math.random() * this.fansite.length)]);
+    }
+    return toStringify(randomFansites);
   }
 }
