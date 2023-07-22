@@ -5,7 +5,7 @@ import { toStringify } from './util/jsonUtil';
 export class AppService {
   getHello(): string {
     return toStringify({
-      "message": "Welcome to the API of the imas-cord-hub-backend!"
+      message: 'Welcome to the API of the imas-cord-hub-backend!',
     });
   }
 }

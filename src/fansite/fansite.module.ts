@@ -4,6 +4,6 @@ import { FansiteController } from './fansite.controller';
 
 @Module({
   providers: [FansiteService],
-  controllers: [FansiteController]
+  controllers: [FansiteController],
 })
 export class FansiteModule {}
