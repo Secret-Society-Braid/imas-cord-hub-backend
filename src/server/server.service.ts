@@ -51,13 +51,12 @@ export class ServerService {
   }
 
   getRandom(amount: number) {
-    const randomServer = [];
-    while (randomServer.length < amount) {
-      const randomIndex = Math.floor(Math.random() * this.server.length);
-      if (!randomServer.includes(this.server[randomIndex])) {
-        randomServer.push(this.server[randomIndex]);
-      }
+    const randomFansites: Array<serverType> = [];
+    for (let i = 0; i < amount; i++) {
+      randomFansites.push(
+        this.server[Math.floor(Math.random() * this.server.length)],
+      );
     }
-    return toStringify(randomServer);
+    return toStringify(randomFansites);
   }
 }
