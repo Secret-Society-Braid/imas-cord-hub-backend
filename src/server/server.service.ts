@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { toStringify } from 'src/util/jsonUtil';
+import { toStringify } from '../util/jsonUtil';
 import { serverType } from './interface/server.interface';
 import { serverModel } from './model/server.model';
 

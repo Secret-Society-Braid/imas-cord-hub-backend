@@ -16,7 +16,9 @@ describe('AppController', () => {
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+      expect(appController.getHello()).toBe(JSON.stringify({
+        message: 'Welcome to the API of the imas-cord-hub-backend!'
+      }, null, 2));
     });
   });
 });

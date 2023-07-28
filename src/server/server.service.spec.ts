@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ServerService } from './server.service';
+import { serverType } from './interface/server.interface';
 
 describe('ServerService', () => {
   let service: ServerService;
@@ -12,7 +13,8 @@ describe('ServerService', () => {
     service = module.get<ServerService>(ServerService);
   });
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
+  it('server root array length has', () => {
+    const parsed: Array<serverType> = JSON.parse(service.getAll()) as Array<serverType>;
+    expect(parsed.length).toBe(1);
   });
 });
