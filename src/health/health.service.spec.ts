@@ -12,7 +12,9 @@ describe('HealthService', () => {
     service = module.get<HealthService>(HealthService);
   });
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
+  it('health root has', () => {
+    const parsed: { status: string, uptime: number } = JSON.parse(service.getHealth());
+    expect(parsed.status).toBe('UP');
+    expect(parsed.uptime).toBeGreaterThan(0);
   });
 });
