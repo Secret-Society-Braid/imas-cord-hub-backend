@@ -2,10 +2,10 @@ import { fansiteType } from '../interface/fansite.interface';
 
 export const fansiteModel: Array<fansiteType> = [
   {
-    id: 0,
-    name: 'test-imas-cord',
-    waifu: 'Haruka Amami',
-    description: 'This is a test fansite for imas-cord.',
-    link: 'https://imas-cord.github.io/',
-  },
+    id: 1,
+    name: 'ImasCordHub',
+    waifu: '',
+    description: 'あのDiscordサーバーも、そのファンサイトも、これひとつ。アイマス関連のDiscordサーバーとファンサイトをまとめたサイトです。',
+    link: 'https://imas-cord-hub.vercel.app/'
+  }
 ];
