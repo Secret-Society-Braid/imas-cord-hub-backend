@@ -16,7 +16,9 @@ describe('ServerController', () => {
   });
 
   it('server root array length has', () => {
-    const parsed: Array<serverType> = JSON.parse(controller.getAll()) as Array<serverType>;
+    const parsed: Array<serverType> = JSON.parse(
+      controller.getAll(),
+    ) as Array<serverType>;
     expect(parsed.length).toBe(1);
   });
 });

@@ -13,7 +13,9 @@ describe('HealthService', () => {
   });
 
   it('health root has', () => {
-    const parsed: { status: string, uptime: number } = JSON.parse(service.getHealth());
+    const parsed: { status: string; uptime: number } = JSON.parse(
+      service.getHealth(),
+    );
     expect(parsed.status).toBe('UP');
     expect(parsed.uptime).toBeGreaterThan(0);
   });

@@ -20,7 +20,7 @@ describe('FansiteService', () => {
 
   it('fansite id path has to be object and id equals', () => {
     const allData: Array<fansiteType> = JSON.parse(service.getAll());
-    if(allData.length === 1) {
+    if (allData.length === 1) {
       expect(allData[0].id).toBe(1);
     } else {
       const randomId: number = Math.floor(Math.random() * allData.length);
@@ -32,9 +32,13 @@ describe('FansiteService', () => {
   it('fansite search path has to be array and should throw exception when invalid search type', () => {
     const allData: Array<fansiteType> = JSON.parse(service.getAll());
     const randomId: number = Math.floor(Math.random() * allData.length);
-    const parsed: Array<fansiteType> = JSON.parse(service.searchByTerm('itself', allData[randomId].name));
+    const parsed: Array<fansiteType> = JSON.parse(
+      service.searchByTerm('itself', allData[randomId].name),
+    );
     expect(parsed.length).toBeGreaterThanOrEqual(1);
-    expect(() => service.searchByTerm('invalid', allData[randomId].name)).toThrow();
+    expect(() =>
+      service.searchByTerm('invalid', allData[randomId].name),
+    ).toThrow();
   });
 
   it('fansite latest path has to be object', () => {
@@ -44,7 +48,9 @@ describe('FansiteService', () => {
 
   it('fansite random path has to be array', () => {
     const randomLength: number = Math.floor(Math.random() * 10);
-    const parsed: Array<fansiteType> = JSON.parse(service.getRandom(randomLength));
+    const parsed: Array<fansiteType> = JSON.parse(
+      service.getRandom(randomLength),
+    );
     expect(parsed.length).toBe(randomLength);
   });
 });
