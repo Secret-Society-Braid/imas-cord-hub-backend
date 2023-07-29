@@ -1,7 +1,18 @@
-import { Controller, Get, Header, Param, Query, HttpStatus } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Header,
+  Param,
+  Query,
+  HttpStatus,
+} from '@nestjs/common';
 import { FansiteService } from './fansite.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { FansiteNotFoundResponse, FansiteSearchTypeNotAcceptableResponse, GetFansiteResponse } from './fansite.dto';
+import {
+  FansiteNotFoundResponse,
+  FansiteSearchTypeNotAcceptableResponse,
+  GetFansiteResponse,
+} from './fansite.dto';
 
 @Controller('fansite')
 @ApiTags('fansite')
@@ -15,7 +26,7 @@ export class FansiteController {
   @ApiResponse({
     status: HttpStatus.OK,
     description: 'returns the list of all fansites',
-    type: [GetFansiteResponse]
+    type: [GetFansiteResponse],
   })
   @Header('Content-Type', 'application/json')
   getAll(): string {
@@ -29,12 +40,12 @@ export class FansiteController {
   @ApiResponse({
     status: HttpStatus.OK,
     description: 'returns the details of a fansite',
-    type: GetFansiteResponse
+    type: GetFansiteResponse,
   })
   @ApiResponse({
     status: HttpStatus.NOT_FOUND,
     description: 'when the fansite is not found',
-    type: FansiteNotFoundResponse
+    type: FansiteNotFoundResponse,
   })
   @Header('Content-Type', 'application/json')
   getById(@Param('id') id: string): string {
@@ -48,12 +59,12 @@ export class FansiteController {
   @ApiResponse({
     status: HttpStatus.OK,
     description: 'returns the search results of a fansite',
-    type: [GetFansiteResponse]
+    type: [GetFansiteResponse],
   })
   @ApiResponse({
     status: HttpStatus.NOT_ACCEPTABLE,
     description: 'when the searchType is not acceptable',
-    type: FansiteSearchTypeNotAcceptableResponse
+    type: FansiteSearchTypeNotAcceptableResponse,
   })
   @Header('Content-Type', 'application/json')
   searchByTerm(
@@ -70,7 +81,7 @@ export class FansiteController {
   @ApiResponse({
     status: HttpStatus.OK,
     description: 'returns the latest added fansite',
-    type: GetFansiteResponse
+    type: GetFansiteResponse,
   })
   @Header('Content-Type', 'application/json')
   getLatest(): string {

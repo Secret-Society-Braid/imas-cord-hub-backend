@@ -1,9 +1,9 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 
 export class GetHelloResponse {
   @ApiProperty({
     type: String,
-    example: 'Welcome to the API of the imas-cord-hub-backend!'
+    example: 'Welcome to the API of the imas-cord-hub-backend!',
   })
   message: string;
 }
