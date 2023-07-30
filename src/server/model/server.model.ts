@@ -2,7 +2,7 @@ import { serverType } from '../interface/server.interface';
 
 export const serverModel: Array<serverType> = [
   {
-    id: 1,
+    id: '9bffce54-d95e-4f51-b8d1-8b68aaea605a',
     name: 'デレマス13歳組の間',
     ip: 'cinderella',
     waifu: [

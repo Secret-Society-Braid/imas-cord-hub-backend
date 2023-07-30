@@ -16,7 +16,7 @@ export class FansiteService {
   }
 
   getById(id: string): string {
-    const result = this.fansite.find((fansite) => fansite.id === Number(id));
+    const result = this.fansite.find((fansite) => fansite.id === id);
     if (result === undefined) {
       throw new NotFoundException('Fansite Not Found');
     }

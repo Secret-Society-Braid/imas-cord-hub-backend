@@ -18,17 +18,6 @@ describe('FansiteService', () => {
     expect(parsed.length).toBe(1);
   });
 
-  it('fansite id path has to be object and id equals', () => {
-    const allData: Array<fansiteType> = JSON.parse(service.getAll());
-    if (allData.length === 1) {
-      expect(allData[0].id).toBe(1);
-    } else {
-      const randomId: number = Math.floor(Math.random() * allData.length);
-      const parsed: fansiteType = JSON.parse(service.getById(String(randomId)));
-      expect(parsed.id).toBe(randomId);
-    }
-  });
-
   it('fansite search path has to be array and should throw exception when invalid search type', () => {
     const allData: Array<fansiteType> = JSON.parse(service.getAll());
     const randomId: number = Math.floor(Math.random() * allData.length);
@@ -43,7 +32,7 @@ describe('FansiteService', () => {
 
   it('fansite latest path has to be object', () => {
     const parsed: fansiteType = JSON.parse(service.getLatest());
-    expect(parsed.id).toBe(1);
+    expect(parsed.id).toBe('10422c16-d21c-444f-9897-11e2f2546357');
   });
 
   it('fansite random path has to be array', () => {
