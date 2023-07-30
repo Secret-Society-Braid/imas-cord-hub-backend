@@ -36,7 +36,7 @@ describe('ServerService', () => {
 
   it('server latest path has to be object', () => {
     const parsed: serverType = JSON.parse(service.getLatest()) as serverType;
-    expect(parsed.id).toBe('9bffce54-d95e-4f51-b8d1-8b68aaea605');
+    expect(parsed.id).toBe('9bffce54-d95e-4f51-b8d1-8b68aaea605a');
   });
 
   it('server random path has to be array', () => {
