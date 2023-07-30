@@ -1,5 +1,5 @@
 export interface fansiteType {
-  id: number;
+  id: string;
   name: string;
   waifu: string;
   description: string;

@@ -12,7 +12,7 @@ export class ServerService {
   }
 
   getById(id: string): string {
-    return toStringify(this.server.find((server) => server.id === Number(id)));
+    return toStringify(this.server.find((server) => server.id === id));
   }
 
   searchByTerm(searchType: string, term: string): string {
