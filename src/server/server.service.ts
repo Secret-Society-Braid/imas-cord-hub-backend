@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { toStringify } from 'src/util/jsonUtil';
+import { toStringify } from '../util/jsonUtil';
 import { serverType } from './interface/server.interface';
 import { serverModel } from './model/server.model';
 
@@ -12,7 +12,7 @@ export class ServerService {
   }
 
   getById(id: string): string {
-    return toStringify(this.server.find((server) => server.id === Number(id)));
+    return toStringify(this.server.find((server) => server.id === id));
   }
 
   searchByTerm(searchType: string, term: string): string {

@@ -22,36 +22,36 @@ body:
         - 意図しない挙動、不具合
         - 提供データの誤り
         - その他
-      validation:
-        required: true
+    validations:
+      required: true
   - type: textarea
     id: bug-detail
     attributes:
       label: バグの詳細
       description: どのようなバグが発生しているか、詳細を記載してください。
       placeholder: 例）「意図しないレスポンスが返ってくる」、「リンクが機能していない」など
-      validation:
-        required: true
+    validations:
+      required: true
   - type: textarea
     id: expected-behavior
     attributes:
       label: 期待する挙動
       description: どのような挙動を期待していますか？
       placeholder: 例）「意図したレスポンスが返ってくる」、「リンクが機能する」など
-      validation:
-        required: true
+    validations:
+      required: true
   - type: textarea
     id: steps-to-reproduce
     attributes:
       label: 再現手順
       description: バグを再現するための手順を記載してください。
       placeholder: 例）「1. 〜をクリックする 2. 〜を入力する 3. 〜をクリックする」など
-      validation:
-        required: true
+    validations:
+      required: true
   - type: textarea
     id: error-response
     attributes:
       label: エラーレスポンス
       description: エラーレスポンスがある場合は、その内容を記載してください。
-      validation:
-        required: false
+    validations:
+      required: false
