@@ -1,5 +1,5 @@
 export interface serverType {
-  id: number;
+  id: string;
   name: string;
   ip:
     | '765as'

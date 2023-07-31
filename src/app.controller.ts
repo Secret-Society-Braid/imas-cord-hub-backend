@@ -15,7 +15,7 @@ export class AppController {
   @ApiResponse({
     status: 200,
     description: 'returns the meta info of API',
-    type: GetHelloResponse
+    type: GetHelloResponse,
   })
   @Header('Content-Type', 'application/json')
   getHello(): string {

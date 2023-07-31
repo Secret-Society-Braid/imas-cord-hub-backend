@@ -1,4 +1,8 @@
-import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  BadRequestException,
+  NotFoundException,
+} from '@nestjs/common';
 import { fansiteType } from './interface/fansite.interface';
 import { fansiteModel } from './model/fansite.model';
 import { toStringify } from '../util/jsonUtil';
@@ -12,8 +16,8 @@ export class FansiteService {
   }
 
   getById(id: string): string {
-    const result = this.fansite.find(fansite => fansite.id === Number(id));
-    if(result === undefined) {
+    const result = this.fansite.find((fansite) => fansite.id === id);
+    if (result === undefined) {
       throw new NotFoundException('Fansite Not Found');
     }
     return toStringify(result);
