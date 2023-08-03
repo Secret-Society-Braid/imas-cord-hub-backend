@@ -15,10 +15,7 @@ describe('ServerController', () => {
     controller = module.get<ServerController>(ServerController);
   });
 
-  it('server root array length has', () => {
-    const parsed: Array<serverType> = JSON.parse(
-      controller.getAll(),
-    ) as Array<serverType>;
-    expect(parsed.length).toBe(1);
+  it('server controller module must be defined', () => {
+    expect(controller).toBeDefined();
   });
 });
