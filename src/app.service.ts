@@ -1,11 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { toStringify } from './util/jsonUtil';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return toStringify({
+  getHello(): { message: string } {
+    return {
       message: 'Welcome to the API of the imas-cord-hub-backend!',
-    });
+    };
   }
 }

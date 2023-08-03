@@ -17,7 +17,7 @@ export class HealthController {
     description: 'returns the health of API',
   })
   @Header('Content-Type', 'application/json')
-  getHealth(): string {
+  getHealth(): { status: string; uptime: number } {
     return this.healthService.getHealth();
   }
 }
