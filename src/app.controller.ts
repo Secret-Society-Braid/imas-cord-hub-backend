@@ -18,7 +18,7 @@ export class AppController {
     type: GetHelloResponse,
   })
   @Header('Content-Type', 'application/json')
-  getHello(): string {
+  getHello(): { message: string } {
     return this.appService.getHello();
   }
 }

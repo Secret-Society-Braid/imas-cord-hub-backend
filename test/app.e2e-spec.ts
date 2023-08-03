@@ -22,8 +22,6 @@ describe('AppController (e2e)', () => {
       .expect(
         JSON.stringify(
           { message: 'Welcome to the API of the imas-cord-hub-backend!' },
-          null,
-          2,
         ),
       );
   });

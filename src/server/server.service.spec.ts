@@ -13,37 +13,45 @@ describe('ServerService', () => {
     service = module.get<ServerService>(ServerService);
   });
 
-  it('server root array length has', () => {
-    const parsed: Array<serverType> = JSON.parse(
-      service.getAll(),
-    ) as Array<serverType>;
-    expect(parsed.length).toBe(1);
+  it('getAll() should return an array of serverType', () => {
+    const result: Array<serverType> = service.getAll();
+    expect(result).toBeInstanceOf(Array);
+    expect(result[0]).toBeInstanceOf(Object);
   });
 
-  it('server search path has to be array and should throw exception when invalid search type', () => {
-    const allData: Array<serverType> = JSON.parse(
-      service.getAll(),
-    ) as Array<serverType>;
-    const randomId: number = Math.floor(Math.random() * allData.length);
-    const parsed: Array<serverType> = JSON.parse(
-      service.searchByTerm('itself', allData[randomId].name),
-    ) as Array<serverType>;
-    expect(parsed.length).toBeGreaterThanOrEqual(1);
-    expect(() =>
-      service.searchByTerm('invalid', allData[randomId].name),
-    ).toThrow();
+  it('getById() should return a serverType', () => {
+    const result: serverType = service.getById(
+      '9bffce54-d95e-4f51-b8d1-8b68aaea605a',
+    );
+    expect(result).toBeInstanceOf(Object);
+    expect(result.id).toBe('9bffce54-d95e-4f51-b8d1-8b68aaea605a');
   });
 
-  it('server latest path has to be object', () => {
-    const parsed: serverType = JSON.parse(service.getLatest()) as serverType;
-    expect(parsed.id).toBe('9bffce54-d95e-4f51-b8d1-8b68aaea605a');
+  it('searchByTerm() should return an array of serverType', () => {
+    const result: Array<serverType> = service.searchByTerm(
+      'itself',
+      'デレマス',
+    );
+    expect(result).toBeInstanceOf(Array);
+    expect(result[0]).toBeInstanceOf(Object);
   });
 
-  it('server random path has to be array', () => {
-    const randomLength: number = Math.floor(Math.random() * 10);
-    const parsed: Array<serverType> = JSON.parse(
-      service.getRandom(randomLength),
-    ) as Array<serverType>;
-    expect(parsed.length).toBe(randomLength);
+  it('searchByTerm() should throw an error when searchType is invalid', () => {
+    expect(() => service.searchByTerm('invalid', 'デレマス')).toThrowError();
+  });
+
+  it('getLatest() should return a serverType', () => {
+    const result: serverType = service.getLatest();
+    expect(result).toBeInstanceOf(Object);
+    expect(result.id).toBe('9bffce54-d95e-4f51-b8d1-8b68aaea605a');
+  });
+
+  it('getRandom() should return an array of serverType', () => {
+    for (let i = 0; i < 10; i++) {
+      const randomLength: number = Math.floor(Math.random() * 10);
+      const result: Array<serverType> = service.getRandom(randomLength);
+      expect(result).toBeInstanceOf(Array);
+      expect(result.length).toBe(randomLength);
+    }
   });
 });

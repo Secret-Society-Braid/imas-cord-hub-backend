@@ -1,11 +1,4 @@
-import {
-  Controller,
-  Get,
-  Header,
-  Param,
-  Query,
-  HttpStatus,
-} from '@nestjs/common';
+import { Controller, Get, Param, Query, HttpStatus } from '@nestjs/common';
 import { FansiteService } from './fansite.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import {
@@ -13,6 +6,7 @@ import {
   FansiteSearchTypeNotAcceptableResponse,
   GetFansiteResponse,
 } from './fansite.dto';
+import { fansiteType } from './interface/fansite.interface';
 
 @Controller('fansite')
 @ApiTags('fansite')
@@ -28,8 +22,7 @@ export class FansiteController {
     description: 'returns the list of all fansites',
     type: [GetFansiteResponse],
   })
-  @Header('Content-Type', 'application/json')
-  getAll(): string {
+  getAll(): Array<fansiteType> {
     return this.fansiteService.getAll();
   }
 
@@ -47,8 +40,7 @@ export class FansiteController {
     description: 'when the fansite is not found',
     type: FansiteNotFoundResponse,
   })
-  @Header('Content-Type', 'application/json')
-  getById(@Param('id') id: string): string {
+  getById(@Param('id') id: string): fansiteType {
     return this.fansiteService.getById(id);
   }
 
@@ -66,11 +58,10 @@ export class FansiteController {
     description: 'when the searchType is not acceptable',
     type: FansiteSearchTypeNotAcceptableResponse,
   })
-  @Header('Content-Type', 'application/json')
   searchByTerm(
     @Query('searchType') searchType: string,
     @Param('term') term: string,
-  ): string {
+  ): Array<fansiteType> {
     return this.fansiteService.searchByTerm(searchType, term);
   }
 
@@ -83,8 +74,7 @@ export class FansiteController {
     description: 'returns the latest added fansite',
     type: GetFansiteResponse,
   })
-  @Header('Content-Type', 'application/json')
-  getLatest(): string {
+  getLatest(): fansiteType {
     return this.fansiteService.getLatest();
   }
 
@@ -96,8 +86,7 @@ export class FansiteController {
     status: 200,
     description: 'returns the random fansites',
   })
-  @Header('Content-Type', 'application/json')
-  getRandom(@Query('amount') amount: string): string {
+  getRandom(@Query('amount') amount: string): Array<fansiteType> {
     const amountNumber = Number(amount);
     return this.fansiteService.getRandom(amountNumber ? amountNumber : 1);
   }
