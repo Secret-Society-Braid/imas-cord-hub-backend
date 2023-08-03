@@ -13,13 +13,6 @@ describe('ServerService', () => {
     service = module.get<ServerService>(ServerService);
   });
 
-  // Re-write tests:
-  // TODO: getAll()
-  // TODO: getById()
-  // TODO: searchByTerm()
-  // TODO: getLatest()
-  // TODO: getRandom()
-
   it('getAll() should return an array of serverType', () => {
     const result: Array<serverType> = service.getAll();
     expect(result).toBeInstanceOf(Array);

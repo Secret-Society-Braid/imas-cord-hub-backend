@@ -16,7 +16,7 @@ describe('HealthService', () => {
     const health = service.getHealth();
     expect(health).toHaveProperty('status');
     expect(health).toHaveProperty('uptime');
-    expect(health.status).toBe('UP');
+    expect(health.status).toBe('OK');
     expect(health.uptime).toBeGreaterThan(0);
   });
 });
