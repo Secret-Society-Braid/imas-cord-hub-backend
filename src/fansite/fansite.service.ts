@@ -11,7 +11,7 @@ export class FansiteService {
   private readonly fansite: Array<fansiteType> = [...fansiteModel];
 
   getAll(): Array<fansiteType> {
-    return this.fansite
+    return this.fansite;
   }
 
   getById(id: string): fansiteType {
@@ -26,18 +26,18 @@ export class FansiteService {
     switch (searchType) {
       case undefined:
         return this.fansite.filter(
-            (fansite) =>
-              fansite.name.toLowerCase().includes(term.toLowerCase()) ||
-              fansite.waifu.toLowerCase().includes(term.toLowerCase()),
-          )
+          (fansite) =>
+            fansite.name.toLowerCase().includes(term.toLowerCase()) ||
+            fansite.waifu.toLowerCase().includes(term.toLowerCase()),
+        );
       case 'itself':
         return this.fansite.filter((fansite) =>
-            fansite.name.toLowerCase().includes(term.toLowerCase()),
-          )
+          fansite.name.toLowerCase().includes(term.toLowerCase()),
+        );
       case 'waifu':
         return this.fansite.filter((fansite) =>
-            fansite.waifu.toLowerCase().includes(term.toLowerCase()),
-          )
+          fansite.waifu.toLowerCase().includes(term.toLowerCase()),
+        );
       default:
         throw new BadRequestException(`Invalid search type: ${searchType}`);
     }

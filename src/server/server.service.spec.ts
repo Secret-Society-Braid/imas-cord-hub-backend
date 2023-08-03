@@ -27,13 +27,18 @@ describe('ServerService', () => {
   });
 
   it('getById() should return a serverType', () => {
-    const result: serverType = service.getById('9bffce54-d95e-4f51-b8d1-8b68aaea605a');
+    const result: serverType = service.getById(
+      '9bffce54-d95e-4f51-b8d1-8b68aaea605a',
+    );
     expect(result).toBeInstanceOf(Object);
     expect(result.id).toBe('9bffce54-d95e-4f51-b8d1-8b68aaea605a');
   });
 
   it('searchByTerm() should return an array of serverType', () => {
-    const result: Array<serverType> = service.searchByTerm('itself', 'デレマス');
+    const result: Array<serverType> = service.searchByTerm(
+      'itself',
+      'デレマス',
+    );
     expect(result).toBeInstanceOf(Array);
     expect(result[0]).toBeInstanceOf(Object);
   });
@@ -49,7 +54,7 @@ describe('ServerService', () => {
   });
 
   it('getRandom() should return an array of serverType', () => {
-    for(let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
       const randomLength: number = Math.floor(Math.random() * 10);
       const result: Array<serverType> = service.getRandom(randomLength);
       expect(result).toBeInstanceOf(Array);

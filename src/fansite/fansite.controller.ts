@@ -1,10 +1,4 @@
-import {
-  Controller,
-  Get,
-  Param,
-  Query,
-  HttpStatus,
-} from '@nestjs/common';
+import { Controller, Get, Param, Query, HttpStatus } from '@nestjs/common';
 import { FansiteService } from './fansite.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import {

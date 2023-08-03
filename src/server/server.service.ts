@@ -18,22 +18,22 @@ export class ServerService {
     switch (searchType) {
       case undefined:
         return this.server.filter(
-            (server) =>
-              server.name.toLowerCase().includes(term.toLowerCase()) ||
-              server.waifu.some((waifu) =>
-                waifu.toLowerCase().includes(term.toLowerCase()),
-              ),
-          );
-      case 'itself':
-        return this.server.filter((server) =>
-            server.name.toLowerCase().includes(term.toLowerCase()),
-          );
-      case 'waifu':
-        return this.server.filter((server) =>
+          (server) =>
+            server.name.toLowerCase().includes(term.toLowerCase()) ||
             server.waifu.some((waifu) =>
               waifu.toLowerCase().includes(term.toLowerCase()),
             ),
-          )
+        );
+      case 'itself':
+        return this.server.filter((server) =>
+          server.name.toLowerCase().includes(term.toLowerCase()),
+        );
+      case 'waifu':
+        return this.server.filter((server) =>
+          server.waifu.some((waifu) =>
+            waifu.toLowerCase().includes(term.toLowerCase()),
+          ),
+        );
       default:
         throw new Error(`Invalid search type: ${searchType}`);
     }
