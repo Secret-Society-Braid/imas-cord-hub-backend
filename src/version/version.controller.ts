@@ -32,7 +32,7 @@ export class VersionController {
     status: HttpStatus.BAD_REQUEST,
     description: 'when the identifier is invalid',
   })
-  getVersionNumber(@Param() identifier: string): { identifier: string, number: number } {
+  getVersionNumber(@Param('identifier') identifier: string): { identifier: string, number: number } {
     return this.versionService.getVersionNumber(identifier);
   }
 }
