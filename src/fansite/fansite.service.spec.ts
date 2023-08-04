@@ -20,13 +20,17 @@ describe('FansiteService', () => {
   });
 
   it('getById() should be return a fansiteType', () => {
-    const res: fansiteType = service.getById('10422c16-d21c-444f-9897-11e2f2546357');
+    const res: fansiteType = service.getById(
+      '10422c16-d21c-444f-9897-11e2f2546357',
+    );
     expect(res).toBeInstanceOf(Object);
     expect(res.id).toBe('10422c16-d21c-444f-9897-11e2f2546357');
   });
 
   it('getById() should be throw NotFoundException', () => {
-    expect(() => service.getById('10422c16-d21c-444f-9897-11e2f2546358')).toThrowError('Fansite Not Found');
+    expect(() =>
+      service.getById('10422c16-d21c-444f-9897-11e2f2546358'),
+    ).toThrowError('Fansite Not Found');
   });
 
   it('searchByTerm() should be return an Array of fansiteType', () => {
@@ -36,7 +40,9 @@ describe('FansiteService', () => {
   });
 
   it('searchByTerm() should throw BadRequestException when searchType is invalid', () => {
-    expect(() => service.searchByTerm('invalid', 'a')).toThrowError('Invalid search type: invalid');
+    expect(() => service.searchByTerm('invalid', 'a')).toThrowError(
+      'Invalid search type: invalid',
+    );
   });
 
   it('getLatest() should be return a fansiteType', () => {
@@ -45,7 +51,7 @@ describe('FansiteService', () => {
   });
 
   it('getRandom() should be return an Array of fansiteType', () => {
-    for(let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10; i++) {
       const randomLength = Math.floor(Math.random() * 10);
       const res: Array<fansiteType> = service.getRandom(randomLength);
       expect(res.length).toBe(randomLength);

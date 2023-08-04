@@ -20,9 +20,9 @@ describe('AppController (e2e)', () => {
       .get('/')
       .expect(200)
       .expect(
-        JSON.stringify(
-          { message: 'Welcome to the API of the imas-cord-hub-backend!' },
-        ),
+        JSON.stringify({
+          message: 'Welcome to the API of the imas-cord-hub-backend!',
+        }),
       );
   });
 
