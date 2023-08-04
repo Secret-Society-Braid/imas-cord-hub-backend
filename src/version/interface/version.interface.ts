@@ -5,5 +5,5 @@ export interface versionType {
     major: number;
     minor: number;
     patch: number;
-  }
+  };
 }

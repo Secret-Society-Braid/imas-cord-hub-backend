@@ -9,7 +9,6 @@ const version: string = `${major}.${minor}.${patch}`;
 
 @Injectable()
 export class VersionService {
-
   private readonly version: versionType = {
     version: version,
     lastUpdated: '2023-08-01',
@@ -17,14 +16,14 @@ export class VersionService {
       major: major,
       minor: minor,
       patch: patch,
-    }
+    },
   };
 
   getVersion(): versionType {
     return this.version;
-  };
+  }
 
-  getVersionNumber(identifier: string): { identifier: string, number: number } {
+  getVersionNumber(identifier: string): { identifier: string; number: number } {
     switch (identifier) {
       case 'major':
         return { identifier: identifier, number: this.version.numbers.major };
@@ -35,5 +34,5 @@ export class VersionService {
       default:
         throw new BadRequestException(`Invalid identifier: ${identifier}`);
     }
-  };
+  }
 }

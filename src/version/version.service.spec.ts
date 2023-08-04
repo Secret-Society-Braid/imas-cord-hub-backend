@@ -19,10 +19,11 @@ describe('VersionService', () => {
     expect(actual).toHaveProperty('lastUpdated');
     const numberRepresentation: string = `${actual.numbers.major}.${actual.numbers.minor}.${actual.numbers.patch}`;
     expect(actual.version).toBe(numberRepresentation);
-  })
+  });
 
   it('should return version number', () => {
-    const actual: { identifier: string, number: number } = service.getVersionNumber('major');
+    const actual: { identifier: string; number: number } =
+      service.getVersionNumber('major');
     expect(actual).toHaveProperty('identifier');
     expect(actual).toHaveProperty('number');
     expect(actual.identifier).toBe('major');

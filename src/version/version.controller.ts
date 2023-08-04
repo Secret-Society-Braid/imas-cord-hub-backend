@@ -14,7 +14,8 @@ export class VersionController {
   })
   @ApiResponse({
     status: HttpStatus.OK,
-    description: 'returns the version and other necessary information of this API',
+    description:
+      'returns the version and other necessary information of this API',
   })
   getVersion(): versionType {
     return this.versionService.getVersion();
@@ -32,7 +33,10 @@ export class VersionController {
     status: HttpStatus.BAD_REQUEST,
     description: 'when the identifier is invalid',
   })
-  getVersionNumber(@Param('identifier') identifier: string): { identifier: string, number: number } {
+  getVersionNumber(@Param('identifier') identifier: string): {
+    identifier: string;
+    number: number;
+  } {
     return this.versionService.getVersionNumber(identifier);
   }
 }
