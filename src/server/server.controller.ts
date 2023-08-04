@@ -1,8 +1,18 @@
-import { Controller, Get, Header, HttpStatus, Param, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  HttpStatus,
+  Param,
+  Query,
+} from '@nestjs/common';
 import { ServerService } from './server.service';
 import { serverType } from './interface/server.interface';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { GetServerResponse, ServerNotFoundResponse, ServerSearchTypeNotAcceptableResponse } from './server.dto';
+import {
+  GetServerResponse,
+  ServerNotFoundResponse,
+  ServerSearchTypeNotAcceptableResponse,
+} from './server.dto';
 
 @Controller('server')
 @ApiTags('server')
@@ -16,7 +26,7 @@ export class ServerController {
   @ApiResponse({
     status: HttpStatus.OK,
     description: 'returns the list of all servers',
-    type: [GetServerResponse]
+    type: [GetServerResponse],
   })
   getAll(): Array<serverType> {
     return this.serverService.getAll();
