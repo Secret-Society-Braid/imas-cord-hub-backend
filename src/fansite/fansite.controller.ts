@@ -83,8 +83,9 @@ export class FansiteController {
     summary: 'Represents the random fansites',
   })
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'returns the random fansites',
+    type: [GetFansiteResponse],
   })
   getRandom(@Query('amount') amount: string): Array<fansiteType> {
     const amountNumber = Number(amount);
