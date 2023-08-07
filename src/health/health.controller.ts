@@ -17,7 +17,7 @@ export class HealthController {
     description: 'returns the health of API',
   })
   @Header('Content-Type', 'application/json')
-  getHealth(): { status: string; uptime: number } {
+  async getHealth(): Promise<{ status: string; uptime: number; }> {
     return this.healthService.getHealth();
   }
 }
