@@ -87,7 +87,9 @@ export class FansiteController {
     description: 'returns the random fansites',
     type: [GetFansiteResponse],
   })
-  async getRandom(@Query('amount') amount: string): Promise<Array<fansiteType>> {
+  async getRandom(
+    @Query('amount') amount: string,
+  ): Promise<Array<fansiteType>> {
     const amountNumber = Number(amount);
     return this.fansiteService.getRandom(amountNumber ? amountNumber : 1);
   }

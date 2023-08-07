@@ -1,10 +1,4 @@
-import {
-  Controller,
-  Get,
-  HttpStatus,
-  Param,
-  Query,
-} from '@nestjs/common';
+import { Controller, Get, HttpStatus, Param, Query } from '@nestjs/common';
 import { ServerService } from './server.service';
 import { serverType } from './interface/server.interface';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';

@@ -33,7 +33,9 @@ export class VersionController {
     status: HttpStatus.BAD_REQUEST,
     description: 'when the identifier is invalid',
   })
-  async getVersionNumber(@Param('identifier') identifier: string): Promise<{ identifier: string; number: number; }> {
+  async getVersionNumber(
+    @Param('identifier') identifier: string,
+  ): Promise<{ identifier: string; number: number }> {
     return this.versionService.getVersionNumber(identifier);
   }
 }
