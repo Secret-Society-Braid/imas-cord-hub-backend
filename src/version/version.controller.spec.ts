@@ -14,7 +14,7 @@ describe('VersionController', () => {
     controller = module.get<VersionController>(VersionController);
   });
 
-  it('should be defined', () => {
+  it('should be defined', async () => {
     expect(controller).toBeDefined();
   });
 });

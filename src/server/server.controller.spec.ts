@@ -14,7 +14,7 @@ describe('ServerController', () => {
     controller = module.get<ServerController>(ServerController);
   });
 
-  it('server controller module must be defined', () => {
+  it('server controller module must be defined', async () => {
     expect(controller).toBeDefined();
   });
 });
