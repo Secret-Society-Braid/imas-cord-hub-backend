@@ -14,7 +14,7 @@ describe('FansiteController', () => {
     controller = module.get<FansiteController>(FansiteController);
   });
 
-  it('should be defined', () => {
+  it('should be defined', async () => {
     expect(controller).toBeDefined();
   });
 });

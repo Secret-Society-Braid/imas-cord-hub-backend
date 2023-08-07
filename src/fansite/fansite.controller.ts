@@ -22,7 +22,7 @@ export class FansiteController {
     description: 'returns the list of all fansites',
     type: [GetFansiteResponse],
   })
-  getAll(): Array<fansiteType> {
+  async getAll(): Promise<Array<fansiteType>> {
     return this.fansiteService.getAll();
   }
 
@@ -40,7 +40,7 @@ export class FansiteController {
     description: 'when the fansite is not found',
     type: FansiteNotFoundResponse,
   })
-  getById(@Param('id') id: string): fansiteType {
+  async getById(@Param('id') id: string): Promise<fansiteType> {
     return this.fansiteService.getById(id);
   }
 
@@ -58,10 +58,10 @@ export class FansiteController {
     description: 'when the searchType is not acceptable',
     type: FansiteSearchTypeNotAcceptableResponse,
   })
-  searchByTerm(
+  async searchByTerm(
     @Query('searchType') searchType: string,
     @Param('term') term: string,
-  ): Array<fansiteType> {
+  ): Promise<Array<fansiteType>> {
     return this.fansiteService.searchByTerm(searchType, term);
   }
 
@@ -74,7 +74,7 @@ export class FansiteController {
     description: 'returns the latest added fansite',
     type: GetFansiteResponse,
   })
-  getLatest(): fansiteType {
+  async getLatest(): Promise<fansiteType> {
     return this.fansiteService.getLatest();
   }
 
@@ -87,7 +87,9 @@ export class FansiteController {
     description: 'returns the random fansites',
     type: [GetFansiteResponse],
   })
-  getRandom(@Query('amount') amount: string): Array<fansiteType> {
+  async getRandom(
+    @Query('amount') amount: string,
+  ): Promise<Array<fansiteType>> {
     const amountNumber = Number(amount);
     return this.fansiteService.getRandom(amountNumber ? amountNumber : 1);
   }

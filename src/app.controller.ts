@@ -16,7 +16,7 @@ export class AppController {
     description: 'returns the meta info of API',
   })
   @Header('Content-Type', 'application/json')
-  getHello(): { message: string } {
+  async getHello(): Promise<{ message: string }> {
     return this.appService.getHello();
   }
 }

@@ -17,7 +17,7 @@ export class VersionController {
     description:
       'returns the version and other necessary information of this API',
   })
-  getVersion(): versionType {
+  async getVersion(): Promise<versionType> {
     return this.versionService.getVersion();
   }
 
@@ -33,10 +33,9 @@ export class VersionController {
     status: HttpStatus.BAD_REQUEST,
     description: 'when the identifier is invalid',
   })
-  getVersionNumber(@Param('identifier') identifier: string): {
-    identifier: string;
-    number: number;
-  } {
+  async getVersionNumber(
+    @Param('identifier') identifier: string,
+  ): Promise<{ identifier: string; number: number }> {
     return this.versionService.getVersionNumber(identifier);
   }
 }

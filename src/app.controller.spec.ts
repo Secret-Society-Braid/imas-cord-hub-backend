@@ -15,9 +15,9 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should be defined', () => {
+    it('should be defined', async () => {
       expect(appController).toBeDefined();
-      const res = appController.getHello();
+      const res: { message: string } = await appController.getHello();
       expect(res).toHaveProperty('message');
     });
   });

@@ -1,10 +1,4 @@
-import {
-  Controller,
-  Get,
-  HttpStatus,
-  Param,
-  Query,
-} from '@nestjs/common';
+import { Controller, Get, HttpStatus, Param, Query } from '@nestjs/common';
 import { ServerService } from './server.service';
 import { serverType } from './interface/server.interface';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -28,7 +22,7 @@ export class ServerController {
     description: 'returns the list of all servers',
     type: [GetServerResponse],
   })
-  getAll(): Array<serverType> {
+  async getAll(): Promise<Array<serverType>> {
     return this.serverService.getAll();
   }
 
@@ -46,7 +40,7 @@ export class ServerController {
     description: 'when the server is not found',
     type: ServerNotFoundResponse,
   })
-  getById(@Param('id') id: string): serverType {
+  async getById(@Param('id') id: string): Promise<serverType> {
     return this.serverService.getById(id);
   }
 
@@ -59,7 +53,7 @@ export class ServerController {
     description: 'returns the latest added server',
     type: GetServerResponse,
   })
-  getLatest(): serverType {
+  async getLatest(): Promise<serverType> {
     return this.serverService.getLatest();
   }
 
@@ -77,10 +71,10 @@ export class ServerController {
     description: 'when the searchType is not acceptable',
     type: ServerSearchTypeNotAcceptableResponse,
   })
-  searchByTerm(
+  async searchByTerm(
     @Query('searchType') searchType: string,
     @Param('term') term: string,
-  ): Array<serverType> {
+  ): Promise<Array<serverType>> {
     return this.serverService.searchByTerm(searchType, term);
   }
 
@@ -93,7 +87,7 @@ export class ServerController {
     description: 'returns a randomly selected server',
     type: [GetServerResponse],
   })
-  getRandom(@Query('amount') amount: string): Array<serverType> {
+  async getRandom(@Query('amount') amount: string): Promise<Array<serverType>> {
     const amountNumber = Number(amount);
     return this.serverService.getRandom(amountNumber ? amountNumber : 1);
   }
